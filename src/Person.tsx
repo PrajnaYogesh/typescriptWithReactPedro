@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "./UserContextProvider";
 
-export interface Person {
+interface Props {
     name:string;
     age:number;
     isMarried : boolean;
 }
 
-export const Person = (props:Person)=>{
+export const User = (props:Props)=>{
+
+    //5. accessing the state and functions sent from provider inside components by first doing useContext
+const {users,addUser,updateUser,deleteUser} = useContext(UserContext);
+
 
     // setting type of useState
     const [isShowInfo, setShowInfo] = useState<boolean | null>(false)

@@ -1,6 +1,7 @@
 
 import './App.css'
-import { Person } from './Person'
+import { User } from './Person'
+import { UserProvider } from './UserContextProvider'
 
 // let name:string = "Prajna"
 // let age:number = 10;
@@ -13,10 +14,11 @@ import { Person } from './Person'
 function App() {
  
   return (
-  <>
-   <Person name={"Prajna"} age={33} isMarried={true}/>
-  <Person name={"Adi"} age={5} isMarried={false}/>
-  </>
+    //4.  wrapping userProvider in the App, so any children components can access them directly by doing useContext, check Person.tsx
+  <UserProvider>
+   <User name={"Prajna"} age={33} isMarried={true}/>
+  <User name={"Adi"} age={5} isMarried={false}/>
+  </UserProvider>
    )
 }
 
